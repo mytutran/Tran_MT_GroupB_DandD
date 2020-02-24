@@ -23,25 +23,32 @@
 	}
 
 	function allowDrag(event) {
-		console.log('started dragging an image');
+		//console.log('started dragging an image');
 		event.dataTransfer.setData("text/plain", this.id);
 
 	}
 
 	function allowDragOver(event) {
 		event.preventDefault();
-		console.log('dragged over a drop zone');
+	//console.log('dragged over a drop zone');
+	}
+
+	function allowDragLeave(event) {
+		event.preventDefault();
+		//console.log('dragged outside drop zone');
 	}
 
 	function allowDrop(event) {
-		//event.preventDefault();
-		console.log('dragged on a drop zone');
-
+		event.preventDefault();
+		//console.log('dragged on a drop zone');
+		let target = event.target;
 		let currentImage = event.dataTransfer.getData("text/plain");
 		// add that image to whaetever drop zone we're dropping our image on
-		event.target.appendChild(document.querySelector(`#${currentImage}`));
+		let droppable = target.classList.contains("drop-zone");
+		if (droppable) {
+		target.appendChild(document.querySelector(`#${currentImage}`));
+		}
 	}
-
 
 
 	// add event handling here -> how is user going to use our app?
@@ -54,6 +61,7 @@
 
 	dropZones.forEach(zone =>  {
 		zone.addEventListener('dragover', allowDragOver),
+		zone.addEventListener('dragover', allowDragLeave),
 		zone.addEventListener('drop', allowDrop)
 	});
 	// call the function and pass in the first nav button as a reference
