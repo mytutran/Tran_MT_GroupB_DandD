@@ -68,5 +68,4 @@
 	// call the function and pass in the first nav button as a reference
 	//research call, apply and bind -> look at MDN
 	changeImageSet.call(puzzleButtons[0]);
-
 })();
