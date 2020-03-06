@@ -45,7 +45,13 @@
 		let target = event.target;
 		let currentImage = event.dataTransfer.getData("text/plain");
 		// add that image to whaetever drop zone we're dropping our image on
-		target.appendChild(document.querySelector(`#${currentImage}`));
+		// condition to drop an image so they dont get overlap
+		if (target.classList.contains("drop-zone")) {
+			target.appendChild(document.querySelector(`#${currentImage}`));
+			}
+			else {
+				return false;
+			}
 	}
 
 
