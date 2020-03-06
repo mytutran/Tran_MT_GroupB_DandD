@@ -18,17 +18,10 @@
 		});
 		//and set the drop zone background image based on the puzzle the user selects
 		gameBoard.style.backgroundImage = `url(images/backGround${this.dataset.puzzleref}.jpg)`;
-		resetPuzzle();
 		//debugger;
 	}
 
 	//create a loop to reset all pieces whenever click on new puzzle
-
-	function resetPuzzle() {
-		puzzlePieces.forEach(puzzle => {
-			puzzleContainer.appendChild(puzzle);
-		});
-	}
 
 	function allowDrag(event) {
 		//console.log('started dragging an image');
@@ -53,7 +46,6 @@
 		else {
 			return false;
 		}
-		target.appendChild(document.querySelector(`#${currentImage}`));
 	}
 
 
