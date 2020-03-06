@@ -48,8 +48,6 @@
 		}
 	}
 
-
-
 	// add event handling here -> how is user going to use our app?
 	//what triggers do we need?
 
